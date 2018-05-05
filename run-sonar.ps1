@@ -1,4 +1,4 @@
-$projectFile = "src\NLog\NLog.csproj"
+$projectFile = "src\NLog.Extensions.Logging\NLog.Extensions.Logging.csproj"
 $sonarQubeId = "nlog.extensions.logging"
 $github = "nlog/NLog.Extensions.Logging"
 $baseBranch = "master"
