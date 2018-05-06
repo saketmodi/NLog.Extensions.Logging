@@ -2,6 +2,7 @@ $projectFile = "src\NLog.Extensions.Logging\NLog.Extensions.Logging.csproj"
 $sonarQubeId = "nlog.extensions.logging"
 $github = "nlog/NLog.Extensions.Logging"
 $baseBranch = "master"
+$framework = "netstandard2.0"
 
 if ($env:APPVEYOR_REPO_NAME -eq $github) {
 
@@ -42,7 +43,7 @@ if ($env:APPVEYOR_REPO_NAME -eq $github) {
         SonarScanner.MSBuild.exe begin /k:"$sonarQubeId" /d:"sonar.host.url=https://sonarqube.com" /d:"sonar.login=$env:sonar_token" 
     }
 
-    msbuild /t:Rebuild $projectFile /p:targetFrameworks=net45 /verbosity:minimal
+    msbuild /t:Rebuild $projectFile /p:targetFrameworks=$framework /verbosity:minimal
 
     SonarScanner.MSBuild.exe end /d:"sonar.login=$env:sonar_token"
 }
